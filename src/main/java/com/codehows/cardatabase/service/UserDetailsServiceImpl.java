@@ -14,9 +14,10 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+//로그인할 때 DB에서 유저를 찾아 UserDetails로 변환하는 역할.
+//username, password, role을 Spring Security가 이해할 수 있는 UserDetails 객체로 만들어 줌
 public class UserDetailsServiceImpl implements UserDetailsService {
     private final AppUserRepository repository;
-
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
